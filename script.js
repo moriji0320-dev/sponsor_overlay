@@ -1,26 +1,16 @@
-const sponsors = [
-  "Xperia 1 VI で映像制作をもっと快適に",
-  "Apex Legends で一緒に勝ちに行こう",
-  "新作ゲームの最新情報をチェック",
-  "次の配信もお楽しみに"
+
+const logos=[
+"logos/dome-.png",
+"logos/kawamol.png",
+"logos/molhub.png",
+"logos/molrogu.png",
+"logos/shisho-.png"
 ];
-
-const message = document.getElementById("sponsor-message");
-let currentIndex = 0;
-
-function renderSponsor(index) {
-  message.classList.remove("is-visible");
-
-  window.setTimeout(() => {
-    message.textContent = sponsors[index];
-    message.classList.add("is-visible");
-  }, 250);
+const box=document.getElementById("sponsor-message");
+let i=0;
+function show(){
+box.innerHTML='<img src="'+logos[i]+'?t='+Date.now()+'" alt="">';
+i=(i+1)%logos.length;
 }
-
-function cycleSponsors() {
-  currentIndex = (currentIndex + 1) % sponsors.length;
-  renderSponsor(currentIndex);
-}
-
-renderSponsor(0);
-window.setInterval(cycleSponsors, 3000);
+show();
+setInterval(show,5000);
